@@ -132,7 +132,7 @@ export default async function BlogPage({
           <BlogCardAvatar date={blog.created_at} />
           <PageShare />
         </div>
-        <p className="mt-4">{blog.content}</p>
+        <p className="mt-4 whitespace-pre-line prose-md">{blog.content}</p>
         <BlogCardImage image={imageUrl} />
       </PageFrame>
     </div>

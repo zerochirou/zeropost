@@ -22,7 +22,7 @@ export default function BlogCard({
         <BlogOtherDrawer date={date} />
       </div>
       <div >
-        <p className="line-clamp-5">{content}</p>
+        <p className="line-clamp-5 whitespace-pre-line prose-md">{content}</p>
         <Link
           href={`/blog/${slug}`}
           className="inline-flex items-center font-medium opacity-50 hover:underline"
