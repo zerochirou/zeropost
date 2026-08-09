@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `/blog/${post.slug}`;
 
   return {
-    title: post.slug.split('_').join(' '),
+    title: post.slug.split("_").join(" "),
     description: post.content,
     alternates: {
       canonical: url,
@@ -52,14 +52,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article",
       url,
-      title: post.slug.split('_').join(' '),
+      title: post.slug.split("_").join(" "),
       description: post.content,
       images: [
         {
           url: post.image,
           width: 1200,
           height: 630,
-          alt: post.slug.split('_').join(' '),
+          alt: post.slug.split("_").join(" "),
         },
       ],
 
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     twitter: {
       card: "summary_large_image",
-      title: post.slug.split('_').join(' '),
+      title: post.slug.split("_").join(" "),
       description: post.content,
       images: [post.image],
     },
@@ -133,7 +133,7 @@ export default async function BlogPage({
           <PageShare />
         </div>
         <p className="mt-4 whitespace-pre-line prose-md">{blog.content}</p>
-        <BlogCardImage image={imageUrl} />
+        {imageUrl && <BlogCardImage image={imageUrl} />}
       </PageFrame>
     </div>
   );
