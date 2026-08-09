@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/commons/theme/provider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zeropost.netlify.app"),
+  metadataBase: new URL("https://zeroposts.netlify.app"),
   title: {
     default: "Zeropost",
     template: "%s | Zeropost",
