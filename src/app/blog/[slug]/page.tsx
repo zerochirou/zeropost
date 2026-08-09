@@ -8,6 +8,72 @@ import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
+
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await createClient();
+
+  const { data: post } = await supabase
+    .from("blogs")
+    .select(
+      `
+        id,
+        slug,
+        content,
+        image,
+        like_count,
+        created_at
+      `,
+    )
+    .eq("slug", slug)
+    .maybeSingle();
+
+  if (!post) {
+    return {
+      title: "Artikel Tidak Ditemukan",
+    };
+  }
+
+  const url = `/blog/${post.slug}`;
+
+  return {
+    title: post.slug.split('_').join(' '),
+    description: post.content,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: "article",
+      url,
+      title: post.slug.split('_').join(' '),
+      description: post.content,
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.slug.split('_').join(' '),
+        },
+      ],
+
+      publishedTime: post.created_at,
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: post.slug.split('_').join(' '),
+      description: post.content,
+      images: [post.image],
+    },
+  };
+}
 
 export default async function BlogPage({
   params,
@@ -66,6 +132,7 @@ export default async function BlogPage({
           <BlogCardAvatar date={blog.created_at} />
           <PageShare />
         </div>
+        {blog.image}
         <p className="mt-4">{blog.content}</p>
         <BlogCardImage image={imageUrl} />
       </PageFrame>

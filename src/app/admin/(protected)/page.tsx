@@ -1,8 +1,6 @@
-import { Separator } from "@/components/ui/separator";
 import { BlogForm } from "@/features/admin/blog-form";
 import { BlogHeader } from "@/features/admin/blog-header";
 import { BlogList } from "@/features/admin/blog-list";
-import { LogoutButton } from "@/features/admin/logout-button";
 import { createClient } from "@/lib/supabase/server";
 
 const PAGE_SIZE = 10;

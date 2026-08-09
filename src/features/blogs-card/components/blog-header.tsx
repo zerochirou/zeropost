@@ -1,6 +1,5 @@
 import { ThemeToggle } from "@/components/commons/theme/toggle";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 
