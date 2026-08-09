@@ -24,7 +24,7 @@ export function BlogCardImage({ image }: { image: string | null }) {
               alt={""}
               width={500}
               height={300}
-              className="rounded-xl w-full"
+              className="rounded-xl w-full border"
             />
           </button>
         }
@@ -40,7 +40,7 @@ export function BlogCardImage({ image }: { image: string | null }) {
             alt={""}
             width={500}
             height={300}
-            className="rounded-xl"
+            className="rounded-xl border"
           />
         </div>
         <DrawerFooter>

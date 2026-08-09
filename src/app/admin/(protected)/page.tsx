@@ -75,7 +75,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
     <main className="min-h-svh bg-muted/30">
       <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
         <BlogHeader />
-        <div className="grid gap-6 grid-cols-5 border-x border-b rounded-b-2xl">
+        <div className="grid gap-6 grid-cols-5 border-x border-b md:rounded-b-2xl">
           <BlogForm />
           <BlogList
             blogs={blogs}

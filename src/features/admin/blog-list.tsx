@@ -80,7 +80,7 @@ export function BlogList({
   }
 
   return (
-    <div className="col-span-2 border-l py-4">
+    <div className="md:col-span-2 col-span-5 md:border-l border-t md:border-t-0 py-4">
       {/* Header */}
       <div className="mb-4 flex items-center justify-between px-4">
         <div>

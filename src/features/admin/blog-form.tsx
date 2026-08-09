@@ -57,7 +57,7 @@ export function BlogForm() {
   }
 
   return (
-    <div className="p-4 col-span-3">
+    <div className="p-4 md:col-span-3 col-span-5">
       <div className="mb-4">
         <CardTitle>Upload blog</CardTitle>
         <CardDescription>

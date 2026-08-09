@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +17,22 @@ import { useState } from "react";
 
 export function PageShare() {
   const [copied, setCopied] = useState(false);
+  const [whatsapp, setWhatsapp] = useState(false);
+
+  const handleWhatsapp = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        "https://api.whatsapp.com/send?phone=6286173412967&text=Haii%2C%20i%20%E2%9D%A4%EF%B8%8F%20you",
+      );
+      setWhatsapp(true);
+      setTimeout(() => {
+        setWhatsapp(false);
+      }, 2000);
+    } catch (err) {
+      console.error("Gagal menyalin URL: ", err);
+    }
+  };
+
   const handleCopy = async () => {
     try {
       const currentUrl = window.location.href;
@@ -45,14 +61,22 @@ export function PageShare() {
           <DrawerDescription>Drawer with a swipe handle.</DrawerDescription>
         </DrawerHeader>
         <div className="flex flex-col gap-2 items-center justify-center p-4">
-          <Button className="w-full" variant="outline">
+          <Button className="w-full" variant="outline" onClick={handleWhatsapp}>
             <Image
               src="/icons/whatsapp.svg"
               alt="WhatsApp"
               width={20}
               height={20}
             />
-            Share on WhatsApp
+            {whatsapp ? (
+              <>
+                Berhasil Disalin!
+              </>
+            ) : (
+              <>
+                Share on WhatsApp
+              </>
+            )}
           </Button>
           <Button className="w-full" variant="outline" onClick={handleCopy}>
             {copied ? (

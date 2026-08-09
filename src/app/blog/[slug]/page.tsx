@@ -120,7 +120,7 @@ export default async function BlogPage({
   return (
     <div className="max-w-3xl w-full mx-auto">
       <BlogHeader />
-      <div className="border-x px-2 border-t pt-4">
+      <div className="md:border-x px-2 border-t pt-4">
         <Link href={"/"}>
           <Button variant={"ghost"}>
             <ChevronLeft /> Back
@@ -132,7 +132,6 @@ export default async function BlogPage({
           <BlogCardAvatar date={blog.created_at} />
           <PageShare />
         </div>
-        {blog.image}
         <p className="mt-4">{blog.content}</p>
         <BlogCardImage image={imageUrl} />
       </PageFrame>
