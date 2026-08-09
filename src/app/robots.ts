@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
 
-    sitemap: "https://zeropost.vercel.app/sitemap.xml",
+    sitemap: "https://zeropost.netlify.app/sitemap.xml",
   };
 }
